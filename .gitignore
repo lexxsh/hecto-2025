@@ -23,7 +23,7 @@ gend-submission.tar
 *.pt
 *.onnx
 *.bin
-
+*.png
 x.py
 y.py
 z.py
