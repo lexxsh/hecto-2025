@@ -1,0 +1,29 @@
+run_name: df40-openfake_final
+run_dir: runs
+seed: 42
+
+num_classes: 2
+backbone: vit_pe_core_large_patch14_336
+backbone_args:
+  img_size: 224
+head: linear
+inference_strategy: softmax
+
+# Training defaults (kept for reproducibility)
+lr: 0.0002
+min_lr: 0.00001
+warmup_epochs: 1
+weight_decay: 0.01
+optimizer: AdamW
+lr_scheduler: cosine
+num_epochs_in_cycle: 1
+
+batch_size: 64
+mini_batch_size: 32
+max_epochs: 5
+num_workers: 8
+devices:
+  - 1
+
+monitor_metric: train/mAP_frame
+monitor_metric_mode: max
