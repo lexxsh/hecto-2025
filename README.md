@@ -17,15 +17,15 @@
 
 ## 데이터 경로
 
-`config/datasets/*_data_deepfake.txt` 파일의 이미지 경로는 **상대경로**입니다.
-즉, txt 파일 위치 기준으로 `train_data/df40-openfake_final/...` 을 찾도록 되어 있으며, 절대경로에 의존하지 않습니다.
+`config/datasets/*_data_deepfake.txt` 파일의 이미지 경로는 **상대경로**입니다. <br/>
+즉, txt 파일 위치 기준으로 `train_data/df40-openfake_final/...` 을 찾도록 되어 있으며, 절대경로에 의존하지 않습니다.<br/>
 학습에 사용한 데이터셋은 총 3종류로 [Deepfake-eval 2024](https://huggingface.co/datasets/nuriachandra/Deepfake-Eval-2024),[DF40](https://github.com/YZY-stack/DF40), 
-[Openfake](https://huggingface.co/datasets/ComplexDataLab/OpenFake) 에서 Sampling을 진행하였습니다. 
+[Openfake](https://huggingface.co/datasets/ComplexDataLab/OpenFake) 에서 Sampling을 진행하였습니다. <br/>
 주 train 데이터셋은 DF40으로 데이터 불균형을 해소하기 위해 생성방법별 약 3,000장을 선별하였으며, Validation set으로는 deepfake-eval의 일부, DF40의 생성방법별 일부를 사용하였습니다.
 
 ## 데이터 다운로드
 
-용량 문제로 아래 파일은 GitHub에 포함하지 않았습니다.
+용량 문제로 아래 파일은 GitHub에 포함하지 않았습니다. <br/>
 Google Drive에서 다운로드 후 제출 폴더에 배치하세요.
 
 - `train_data.zip` (학습 데이터) 설치 명령어 - `gdown 1zB_pUCPo5JeOhoDDoSWQjIjzuRYD6CF-`
@@ -62,7 +62,7 @@ docker save gend-submission -o gend-submission.tar
 
 ## Docker 이미지 로드 및 실행
 
-> Docker가 오류가 뜨는 경우에는 가상환경 설치 후, 라이브러리 설치 후 로컬로 실행해주세요. (아래 [Docker 없이 직접 실행 (로컬)](#docker-없이-직접-실행-로컬) 참고)
+> Docker 구축이 완전하지 않습니다. Docker가 오류가 뜨는 경우에는 가상환경 설치 후, 라이브러리 설치 후 로컬로 실행해주세요. (아래 [Docker 없이 직접 실행 (로컬)](#docker-없이-직접-실행-로컬) 참고)
 
 ### 로드
 
@@ -72,8 +72,8 @@ docker load -i gend-submission.tar
 
 ## Docker 없이 직접 실행 (로컬)
 
-아래 명령은 Docker 없이 로컬 환경에서 실행하는 방법입니다.
-Python 및 라이브러리는 가상환경 생성 후 `pip install -r requirements.txt`로 설치하세요. conda 환경을 사용하는 경우 `conda env create -f env/environment.yml`로 설치할 수 있습니다.
+아래 명령은 Docker 없이 로컬 환경에서 실행하는 방법입니다. <br/>
+Python 및 라이브러리는 가상환경 생성 후 `pip install -r requirements.txt`로 설치하세요. <br/>conda 환경을 사용하는 경우 `conda env create -f env/environment.yml`로 설치할 수 있습니다.
 
 ### 모델 구조
 
