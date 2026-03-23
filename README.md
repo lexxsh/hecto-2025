@@ -79,7 +79,7 @@ Python 및 라이브러리는 가상환경 생성 후 `pip install -r requiremen
 
 모델구조는 다음과 같습니다.
 
-Perception Encoder(`vit_pe_core_large_patch14_336`, ViT)를 backbone으로 사용합니다. 초기에는 backbone을 freeze하고 Linear Probe head만 학습하는 방식을 시도하였으나 성능 한계(AUC 91)가 있었습니다. 이를 개선하기 위해 **LN-tuning** 방식을 적용하였습니다. https://github.com/yermandy/GenD 위 코드를 베이스로 수정하였으며, 학습블록, 레이어를 변경하며 실험을 진행하였습니다.
+Perception Encoder(`vit_pe_core_large_patch14_336`, ViT)를 backbone으로 사용합니다. 초기에는 backbone을 freeze하고 Linear Probe head만 학습하는 방식을 시도하였으나 성능 한계(AUC 91)가 있었습니다. 이를 개선하기 위해 **LN-tuning** 방식을 적용하였습니다. [위 코드](https://github.com/lexxsh/hecto-2025)를 베이스로 수정하였으며, 학습블록, 레이어를 변경하며 최적의 학습 레이어로 업데이트하였습니다..
 
 **LN-tuning**은 backbone의 Layer Normalization 블록의 affine 파라미터(scale, shift)만 학습하는 PEFT 기법으로, 전체 파라미터의 약 0.03%만 업데이트합니다. FFT나 LoRA는 소규모 데이터에서 빠르게 overfitting 되어, 점수의 한계가 나타났으나 이 방법론을 사용한 뒤 94+를 달성할 수 있었습니다.
 
