@@ -8,7 +8,7 @@ experiments = {
             # Model (Large 336 - 256 image will be upscaled but checkpoint compatible)
             backbone=C.Backbone.PerceptionEncoder_L_p14_336,
             backbone_args=C.BackboneArgs(img_size=224),
-            checkpoint="../../model/GenD_PE_finetune",
+            checkpoint="model/PE_checkpoint",
             
             head=C.Head.Linear,
             unfreeze_layers=["norm_pre", "norm1", "norm2", "norm"],
@@ -108,7 +108,7 @@ experiments = {
             
             # Hardware
             run_dir="runs",
-            wandb=True,
+            wandb=False,
             devices=[0],
             num_workers=8,
             #use_balanced_sampling=True,
